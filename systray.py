@@ -27,7 +27,7 @@ class MainClass:
   def run(self):
     self.menu = gtk.Menu()
     servicesMenuItem = gtk.ImageMenuItem()
-    
+
     # Label Item
     title = gtk.Label()
     title.set_text("<b><span foreground=\"grey\">" + "Pulseaudio DLNA Server:" + "</span></b>")
@@ -36,30 +36,30 @@ class MainClass:
     title.set_use_markup(True)
     servicesMenuItem.add(title)
     self.menu.append(servicesMenuItem)
-    
+
     # Start Item
     self.startMenuItem = gtk.MenuItem('Start')
     self.startMenuItem.connect('activate', self._start)
     self.menu.append(self.startMenuItem)
-    
+
     # Seperator Item
     self.menu.append(gtk.SeparatorMenuItem())
-    
+
     # Stop Item
     self.stopMenuItem = gtk.MenuItem('Stop')
     self.stopMenuItem.connect('activate', self._stop)
     # Deactivate Stop Item at the beginning. Cosmetic
     self.stopMenuItem.set_sensitive(False)
     self.menu.append(self.stopMenuItem)
-    
+
     # Seperator Item
     self.menu.append(gtk.SeparatorMenuItem())
-    
+
     # Quit Item
     menuItem = gtk.ImageMenuItem(gtk.STOCK_QUIT)
     menuItem.connect('activate', self.quit_cb)
     self.menu.append(menuItem)
-    
+
     self.menu.show_all()
 
   def _start(self, widget):
@@ -71,7 +71,7 @@ class MainClass:
     os.system('pactl load-module module-dbus-protocol')
     # execute on backround
     os.system('%s &' % pulseaudio_dlna)
-  
+
   def _stop(self, widget):
     # Deactivate Stop Item after stoping.
     self.stopMenuItem.set_sensitive(False)
