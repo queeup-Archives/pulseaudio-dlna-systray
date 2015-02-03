@@ -4,11 +4,9 @@ import os
 import sys
 import gtk
 
-# If pulseaudio_dlna.py not in the same directory
-# or
 # if you need to add some options to pulseaudio_dlna.py
 # please edit this line for your needs.
-pulseaudio_dlna = sys.path[0] + '/pulseaudio_dlna.py'
+pulseaudio_dlna = 'pulseaudio-dlna'
 
 
 class MainClass:
@@ -75,7 +73,7 @@ class MainClass:
     self.stopMenuItem.set_sensitive(False)
     # Activate Start Item after stoping.
     self.startMenuItem.set_sensitive(True)
-    os.system('kill -TERM `pidof -x pulseaudio_dlna.py`')
+    os.system('kill -TERM `pidof pulseaudio-dlna`')
 
   def quit_cb(self, widget):
     self.statusIcon.set_visible(False)
