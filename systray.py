@@ -13,7 +13,7 @@ class MainClass:
 
   def __init__(self):
     self.statusIcon = gtk.StatusIcon()
-    self.statusIcon.set_from_file(sys.path[0] + '/systray.png')
+    self.statusIcon.set_from_file(sys.path[0] + '/systray_icon.png')
     self.statusIcon.set_tooltip('Pulseaudio DLNA Server')
     self.statusIcon.set_visible(True)
 
