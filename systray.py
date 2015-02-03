@@ -67,8 +67,6 @@ class MainClass:
     self.stopMenuItem.set_sensitive(True)
     # Deactivate Start Item after starting to avoid confuse and start second instant
     self.startMenuItem.set_sensitive(False)
-    # Load pulseaudio module-dbus-protocol
-    os.system('pactl load-module module-dbus-protocol')
     # execute on backround
     os.system('%s &' % pulseaudio_dlna)
 
